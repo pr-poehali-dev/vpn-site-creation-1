@@ -26,9 +26,9 @@ const Index = () => {
             <span className="text-xl font-bold">SecureVPN</span>
           </div>
           <div className="hidden md:flex items-center gap-6">
-            <a href="#features" className="text-sm hover:text-primary transition-colors">Возможности</a>
-            <a href="#pricing" className="text-sm hover:text-primary transition-colors">Тарифы</a>
             <a href="#servers" className="text-sm hover:text-primary transition-colors">Серверы</a>
+            <a href="#pricing" className="text-sm hover:text-primary transition-colors">Тарифы</a>
+            <a href="#features" className="text-sm hover:text-primary transition-colors">Возможности</a>
             <a href="#support" className="text-sm hover:text-primary transition-colors">Поддержка</a>
           </div>
           <Button className="bg-gradient-to-r from-primary to-secondary">
@@ -86,7 +86,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="features" className="py-20 px-4 bg-muted/30">
+      <section id="servers" className="py-20 px-4 bg-muted/30">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16 animate-slide-up">
             <Badge className="mb-4">Возможности</Badge>
@@ -95,78 +95,33 @@ const Index = () => {
               Передовые технологии защиты и максимальная производительность
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-2 hover:border-primary transition-all hover:shadow-lg">
-              <CardHeader>
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Icon name="Zap" className="text-primary" size={24} />
-                </div>
-                <CardTitle>Высокая скорость</CardTitle>
-                <CardDescription>
-                  Наши серверы обеспечивают максимальную скорость соединения без ограничений
-                </CardDescription>
-              </CardHeader>
-            </Card>
-            <Card className="border-2 hover:border-primary transition-all hover:shadow-lg">
-              <CardHeader>
-                <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
-                  <Icon name="Infinity" className="text-secondary" size={24} />
-                </div>
-                <CardTitle>Без ограничений</CardTitle>
-                <CardDescription>
-                  Неограниченная пропускная способность и отсутствие лимитов на трафик
-                </CardDescription>
-              </CardHeader>
-            </Card>
-            <Card className="border-2 hover:border-primary transition-all hover:shadow-lg">
-              <CardHeader>
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Icon name="Lock" className="text-primary" size={24} />
-                </div>
-                <CardTitle>Полная защита</CardTitle>
-                <CardDescription>
-                  Военное шифрование AES-256 и строгая политика no-logs
-                </CardDescription>
-              </CardHeader>
-            </Card>
-            <Card className="border-2 hover:border-secondary transition-all hover:shadow-lg">
-              <CardHeader>
-                <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
-                  <Icon name="Globe" className="text-secondary" size={24} />
-                </div>
-                <CardTitle>50+ стран</CardTitle>
-                <CardDescription>
-                  Доступ к контенту из любой точки мира через наши серверы
-                </CardDescription>
-              </CardHeader>
-            </Card>
-            <Card className="border-2 hover:border-primary transition-all hover:shadow-lg">
-              <CardHeader>
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Icon name="Smartphone" className="text-primary" size={24} />
-                </div>
-                <CardTitle>Все устройства</CardTitle>
-                <CardDescription>
-                  Windows, Mac, iOS, Android, Linux — одна подписка для всех
-                </CardDescription>
-              </CardHeader>
-            </Card>
-            <Card className="border-2 hover:border-secondary transition-all hover:shadow-lg">
-              <CardHeader>
-                <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
-                  <Icon name="Clock" className="text-secondary" size={24} />
-                </div>
-                <CardTitle>24/7 поддержка</CardTitle>
-                <CardDescription>
-                  Наша команда всегда готова помочь в любое время суток
-                </CardDescription>
-              </CardHeader>
-            </Card>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { country: "США", servers: 250, flag: "🇺🇸" },
+              { country: "Германия", servers: 180, flag: "🇩🇪" },
+              { country: "Япония", servers: 120, flag: "🇯🇵" },
+              { country: "Великобритания", servers: 150, flag: "🇬🇧" },
+              { country: "Франция", servers: 100, flag: "🇫🇷" },
+              { country: "Канада", servers: 90, flag: "🇨🇦" },
+              { country: "Австралия", servers: 80, flag: "🇦🇺" },
+              { country: "Сингапур", servers: 70, flag: "🇸🇬" }
+            ].map((server, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all">
+                <CardHeader>
+                  <div className="text-4xl mb-2">{server.flag}</div>
+                  <CardTitle className="text-xl">{server.country}</CardTitle>
+                  <CardDescription className="flex items-center gap-2">
+                    <Icon name="Server" size={16} />
+                    {server.servers} серверов
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      <section id="servers" className="py-20 px-4">
+      <section id="pricing" className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <Badge className="mb-4">География серверов</Badge>
@@ -288,6 +243,86 @@ const Index = () => {
           <div className="text-center mt-8 text-sm text-muted-foreground">
             <Icon name="Shield" size={16} className="inline mr-1" />
             30-дневная гарантия возврата денег
+          </div>
+        </div>
+      </section>
+
+      <section id="features" className="py-20 px-4 bg-muted/30">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16 animate-slide-up">
+            <Badge className="mb-4">Возможности</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Почему выбирают нас</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Передовые технологии защиты и максимальная производительность
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="border-2 hover:border-primary transition-all hover:shadow-lg">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Icon name="Zap" className="text-primary" size={24} />
+                </div>
+                <CardTitle>Высокая скорость</CardTitle>
+                <CardDescription>
+                  Наши серверы обеспечивают максимальную скорость соединения без ограничений
+                </CardDescription>
+              </CardHeader>
+            </Card>
+            <Card className="border-2 hover:border-primary transition-all hover:shadow-lg">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
+                  <Icon name="Infinity" className="text-secondary" size={24} />
+                </div>
+                <CardTitle>Без ограничений</CardTitle>
+                <CardDescription>
+                  Неограниченная пропускная способность и отсутствие лимитов на трафик
+                </CardDescription>
+              </CardHeader>
+            </Card>
+            <Card className="border-2 hover:border-primary transition-all hover:shadow-lg">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Icon name="Lock" className="text-primary" size={24} />
+                </div>
+                <CardTitle>Полная защита</CardTitle>
+                <CardDescription>
+                  Военное шифрование AES-256 и строгая политика no-logs
+                </CardDescription>
+              </CardHeader>
+            </Card>
+            <Card className="border-2 hover:border-secondary transition-all hover:shadow-lg">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
+                  <Icon name="Globe" className="text-secondary" size={24} />
+                </div>
+                <CardTitle>50+ стран</CardTitle>
+                <CardDescription>
+                  Доступ к контенту из любой точки мира через наши серверы
+                </CardDescription>
+              </CardHeader>
+            </Card>
+            <Card className="border-2 hover:border-primary transition-all hover:shadow-lg">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Icon name="Smartphone" className="text-primary" size={24} />
+                </div>
+                <CardTitle>Все устройства</CardTitle>
+                <CardDescription>
+                  Windows, Mac, iOS, Android, Linux — одна подписка для всех
+                </CardDescription>
+              </CardHeader>
+            </Card>
+            <Card className="border-2 hover:border-secondary transition-all hover:shadow-lg">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
+                  <Icon name="Clock" className="text-secondary" size={24} />
+                </div>
+                <CardTitle>24/7 поддержка</CardTitle>
+                <CardDescription>
+                  Наша команда всегда готова помочь в любое время суток
+                </CardDescription>
+              </CardHeader>
+            </Card>
           </div>
         </div>
       </section>
