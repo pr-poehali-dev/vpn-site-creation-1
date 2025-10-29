@@ -88,41 +88,6 @@ const Index = () => {
 
       <section id="servers" className="py-20 px-4 bg-muted/30">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16 animate-slide-up">
-            <Badge className="mb-4">Возможности</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Почему выбирают нас</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Передовые технологии защиты и максимальная производительность
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { country: "США", servers: 250, flag: "🇺🇸" },
-              { country: "Германия", servers: 180, flag: "🇩🇪" },
-              { country: "Япония", servers: 120, flag: "🇯🇵" },
-              { country: "Великобритания", servers: 150, flag: "🇬🇧" },
-              { country: "Франция", servers: 100, flag: "🇫🇷" },
-              { country: "Канада", servers: 90, flag: "🇨🇦" },
-              { country: "Австралия", servers: 80, flag: "🇦🇺" },
-              { country: "Сингапур", servers: 70, flag: "🇸🇬" }
-            ].map((server, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all">
-                <CardHeader>
-                  <div className="text-4xl mb-2">{server.flag}</div>
-                  <CardTitle className="text-xl">{server.country}</CardTitle>
-                  <CardDescription className="flex items-center gap-2">
-                    <Icon name="Server" size={16} />
-                    {server.servers} серверов
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="pricing" className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <Badge className="mb-4">География серверов</Badge>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Серверы по всему миру</h2>
@@ -156,7 +121,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="pricing" className="py-20 px-4 bg-muted/30">
+      <section id="pricing" className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <Badge className="mb-4">Тарифы</Badge>
